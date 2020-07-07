@@ -3,8 +3,9 @@
     <div class="row mt-3">
         <div class="col-md-6">
             <h3> Daftar User </h3>
-            <ul class="list-group">
-                <li class="list-group-item">Cras justo odio</li>
+            <?php foreach( $tabel_user as $tu ) : ?>
+                <li class="list-group-item"><?= $tu['nama_user']; ?></li>
+            <?php endforeach; ?>
             </ul>
         </div>
     

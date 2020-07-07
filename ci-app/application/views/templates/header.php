@@ -20,12 +20,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link " href="#">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="#">Admin</a>
-                <a class="nav-item nav-link" href="#">Barang</a>
-                <a class="nav-item nav-link" href="#">Checkout</a>
-                <a class="nav-item nav-link" href="#">Jenis Barang</a>
-                <a class="nav-item nav-link" href="#">User</a>
+                <a class="nav-item nav-link " href="<?= base_url(); ?>">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="<?= base_url(); ?>Tabel_Admin">Admin</a>
+                <a class="nav-item nav-link" href="<?= base_url(); ?>Tabel_Barang">Barang</a>
+                <a class="nav-item nav-link" href="<?= base_url(); ?>Tabel_Chekout">Checkout</a>
+                <a class="nav-item nav-link" href="<?= base_url(); ?>Tabel_Jenis_Barang">Jenis Barang</a>
+                <a class="nav-item nav-link" href="<?= base_url(); ?>Tabel_User">User</a>
             </div>
         </div>
     </div>

@@ -3,8 +3,9 @@
     <div class="row mt-3">
         <div class="col-md-6">
             <h3> Daftar Chekout </h3>
-            <ul class="list-group">
-                <li class="list-group-item">Cras justo odio</li>
+            <?php foreach( $tabel_chekout as $tc ) : ?>
+                <li class="list-group-item"><?= $tc['id_chekout']; ?></li>
+            <?php endforeach; ?>
             </ul>
         </div>
     
