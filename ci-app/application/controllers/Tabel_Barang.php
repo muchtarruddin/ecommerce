@@ -5,6 +5,7 @@ class Tabel_Barang extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('Tabel_Barang_model');
+        $this->load->library('form_validation');
     }
 
     public function index()
@@ -14,5 +15,27 @@ class Tabel_Barang extends CI_Controller {
         $this->load->view('templates/header', $data);
         $this->load->view('tabel_barang/index', $data);
         $this->load->view('templates/footer');
+    }
+
+    public function tambah()
+    {
+        $data['judul'] = 'Form Tambah Data Barang';
+
+        $this->form_validation->set_rules('id_barang', 'Id Barang', 'required|min_length[4]|max_length[4]');
+        $this->form_validation->set_rules('id_user', 'Id User', 'required|max_length[2]|min_length[2]');
+        $this->form_validation->set_rules('id_jenis', 'Id Jenis', 'required|max_length[3]|min_length[3]');
+        $this->form_validation->set_rules('id_admin', 'Id Admin', 'required|max_length[1]|min_length[1]');
+        $this->form_validation->set_rules('nama_barang', 'Nama Barang', 'required');
+        //$this->form_validation->set_rules('harga_barang', 'Harga Barang', 'required|');
+        if( $this->form_validation->run() == FALSE )
+        {
+            $this->load->view('templates/header', $data);
+            $this->load->view('tabel_barang/tambah');
+            $this->load->view('templates/footer');
+        }
+        else
+        {
+            echo "berhasil";
+        }
     }
 }

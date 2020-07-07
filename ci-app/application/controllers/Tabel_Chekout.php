@@ -15,4 +15,12 @@ class Tabel_Chekout extends CI_Controller {
         $this->load->view('tabel_chekout/index', $data);
         $this->load->view('templates/footer');
     }
+    
+    public function tambah()
+    {
+        $data['judul'] = 'Form Tambah Data Chekout';
+        $this->load->view('templates/header', $data);
+        $this->load->view('tabel_chekout/tambah');
+        $this->load->view('templates/footer');
+    }
 }

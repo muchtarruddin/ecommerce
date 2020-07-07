@@ -15,4 +15,12 @@ class Tabel_Admin extends CI_Controller {
         $this->load->view('tabel_admin/index', $data);
         $this->load->view('templates/footer');
     }
+
+    public function tambah()
+    {
+        $data['judul'] = 'Form Tambah Data Admin';
+        $this->load->view('templates/header', $data);
+        $this->load->view('tabel_admin/tambah');
+        $this->load->view('templates/footer');
+    }
 }

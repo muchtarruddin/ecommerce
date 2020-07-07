@@ -15,4 +15,12 @@ class Tabel_Jenis_Barang extends CI_Controller {
         $this->load->view('tabel_jenis_barang/index', $data);
         $this->load->view('templates/footer');
     }
+
+    public function tambah()
+    {
+        $data['judul'] = 'Form Tambah Data Jenis Barang';
+        $this->load->view('templates/header', $data);
+        $this->load->view('tabel_jenis_barang/tambah');
+        $this->load->view('templates/footer');
+    }
 }
