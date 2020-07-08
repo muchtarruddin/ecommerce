@@ -10,7 +10,10 @@
         <div class="col-md-6">
             <h3> Daftar Jenis Barang </h3>
             <?php foreach( $tabel_jenis_barang as $tjb ) : ?>
-                <li class="list-group-item"><?= $tjb['nama_jenis_barang']; ?></li>
+                <li class="list-group-item">
+                    <?= $tjb['nama_jenis_barang']; ?>
+                    <<a href="<?= base_url(); ?>Tabel_Jenis_Barang/hapus">hapus</a>
+                </li>
             <?php endforeach; ?>
             </ul>
         </div>
