@@ -16,7 +16,9 @@
                 <form action="" method="post">
                     <div class="form-group">
                         <label for="id_admin">Id Admin</label>
-                        <input type="text" class="form-control" id="id_admin" name= "id_admin" placehorder="contoh : 4">
+                        <input type="text" class="form-control" id="id_admin" name= "id_admin" 
+                        placehorder="contoh : 4">
+                        <small class="form-text text-danger"></small>
                     </div>
                     <div class="form-group">
                         <label for="nama_admin">Nama Admin</label>
