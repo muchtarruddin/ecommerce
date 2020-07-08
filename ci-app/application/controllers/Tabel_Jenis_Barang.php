@@ -23,7 +23,6 @@ class Tabel_Jenis_Barang extends CI_Controller {
 
         $this->form_validation->set_rules('id_jenis', 'Id jenis', 'required|min_length[3]|max_length[3]');
         $this->form_validation->set_rules('nama_jenis_barang', 'nama jenis barang', 'required');
-        //$this->form_validation->set_rules('harga_barang', 'Harga Barang', 'required|');
         if( $this->form_validation->run() == FALSE )
         {
         $this->load->view('templates/header', $data);
@@ -32,7 +31,8 @@ class Tabel_Jenis_Barang extends CI_Controller {
         }
         else
         {
-            echo "berhasil";
+            $this->Tabel_Jenis_Barang_model->tambahDataJenisBarang();
+            redirect('Tabel_Jenis_Barang');
         }
     }
 }

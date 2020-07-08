@@ -37,7 +37,8 @@ class Tabel_Chekout extends CI_Controller {
         }
         else
         {
-            echo ('berhasil');
+            $this->Tabel_Chekout_model->tambahDataChekout();
+            redirect('Tabel_Chekout');
         }
     }
 }

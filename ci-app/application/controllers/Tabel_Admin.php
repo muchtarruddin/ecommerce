@@ -34,7 +34,8 @@ class Tabel_Admin extends CI_Controller {
         }
         else
         {
-            echo ('berhasil');
+            $this->Tabel_Admin_model->tambahDataAdmin();
+            redirect('Tabel_Admin');
         }
     }
 }

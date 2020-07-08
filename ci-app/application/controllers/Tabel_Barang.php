@@ -35,7 +35,8 @@ class Tabel_Barang extends CI_Controller {
         }
         else
         {
-            echo "berhasil";
+            $this->Tabel_Barang_model->tambahDataBarang();
+            redirect('Tabel_Barang');
         }
     }
 }

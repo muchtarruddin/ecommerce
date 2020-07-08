@@ -35,7 +35,8 @@ class Tabel_User extends CI_Controller {
         }
         else
         {
-            echo "berhasil!";
+            $this->Tabel_User_model->tambahDataUser();
+            redirect('Tabel_User');
         }
     }
 }
