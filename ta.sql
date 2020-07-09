@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 04 Jul 2020 pada 11.42
--- Versi Server: 10.1.29-MariaDB
--- PHP Version: 7.1.12
+-- Waktu pembuatan: 09 Jul 2020 pada 18.57
+-- Versi server: 10.1.36-MariaDB
+-- Versi PHP: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -33,17 +33,18 @@ CREATE TABLE `tabel_admin` (
   `nama_admin` varchar(30) DEFAULT NULL,
   `jenis_kelamin` varchar(10) DEFAULT NULL,
   `alamat` varchar(30) DEFAULT NULL,
-  `telepon` int(11) DEFAULT NULL
+  `telepon` int(11) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tabel_admin`
 --
 
-INSERT INTO `tabel_admin` (`id_admin`, `nama_admin`, `jenis_kelamin`, `alamat`, `telepon`) VALUES
-(1, 'Rudi', 'laki-laki', 'rungkut', 2147483647),
-(2, 'Aan', 'laki-laki', 'simo', 2147483647),
-(3, 'Mega', 'perempuan', 'kenjeran', 2147483647);
+INSERT INTO `tabel_admin` (`id_admin`, `nama_admin`, `jenis_kelamin`, `alamat`, `telepon`, `password`) VALUES
+(1, 'Rudi', 'laki-laki', 'rungkut', 2147483647, NULL),
+(2, 'Aan', 'laki-laki', 'simo', 2147483647, NULL),
+(3, 'Mega', 'perempuan', 'kenjeran', 2147483647, NULL);
 
 -- --------------------------------------------------------
 
@@ -57,17 +58,18 @@ CREATE TABLE `tabel_barang` (
   `id_jenis` int(11) DEFAULT NULL,
   `id_admin` int(11) DEFAULT NULL,
   `nama_barang` varchar(30) DEFAULT NULL,
-  `harga_barang` int(11) DEFAULT NULL
+  `harga_barang` int(11) DEFAULT NULL,
+  `picture` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tabel_barang`
 --
 
-INSERT INTO `tabel_barang` (`id_barang`, `id_user`, `id_jenis`, `id_admin`, `nama_barang`, `harga_barang`) VALUES
-(1001, 11, 101, 1, 'liquid', 150000),
-(1002, 22, 102, 2, 'kipas', 200000),
-(1003, 33, 103, 3, 'kiprok', 250000);
+INSERT INTO `tabel_barang` (`id_barang`, `id_user`, `id_jenis`, `id_admin`, `nama_barang`, `harga_barang`, `picture`) VALUES
+(1001, 11, 101, 1, 'liquid', 150000, NULL),
+(1002, 22, 102, 2, 'kipas', 200000, NULL),
+(1003, 33, 103, 3, 'kiprok', 250000, NULL);
 
 -- --------------------------------------------------------
 
@@ -127,48 +129,49 @@ CREATE TABLE `tabel_user` (
   `jenis_kel_user` varchar(10) DEFAULT NULL,
   `alamat` varchar(30) DEFAULT NULL,
   `email_user` varchar(30) DEFAULT NULL,
-  `telepon` int(11) DEFAULT NULL
+  `telepon` int(11) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tabel_user`
 --
 
-INSERT INTO `tabel_user` (`id_user`, `nama_user`, `jenis_kel_user`, `alamat`, `email_user`, `telepon`) VALUES
-(11, 'Yehezkiel', 'laki-laki', 'rungkut', 'yehe@gmail.com', 2147483647),
-(22, 'abdul', 'laki-laki', 'simo', 'abdul@gmail.com', 2147483647),
-(33, 'haikal', 'laki-laki', 'kenjeran', 'haikal@gmail.com', 2147483647);
+INSERT INTO `tabel_user` (`id_user`, `nama_user`, `jenis_kel_user`, `alamat`, `email_user`, `telepon`, `password`) VALUES
+(11, 'Yehezkiel', 'laki-laki', 'rungkut', 'yehe@gmail.com', 2147483647, NULL),
+(22, 'abdul', 'laki-laki', 'simo', 'abdul@gmail.com', 2147483647, NULL),
+(33, 'haikal', 'laki-laki', 'kenjeran', 'haikal@gmail.com', 2147483647, NULL);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `tabel_admin`
+-- Indeks untuk tabel `tabel_admin`
 --
 ALTER TABLE `tabel_admin`
   ADD PRIMARY KEY (`id_admin`);
 
 --
--- Indexes for table `tabel_barang`
+-- Indeks untuk tabel `tabel_barang`
 --
 ALTER TABLE `tabel_barang`
   ADD PRIMARY KEY (`id_barang`);
 
 --
--- Indexes for table `tabel_chekout`
+-- Indeks untuk tabel `tabel_chekout`
 --
 ALTER TABLE `tabel_chekout`
   ADD PRIMARY KEY (`id_chekout`);
 
 --
--- Indexes for table `tabel_jenis_barang`
+-- Indeks untuk tabel `tabel_jenis_barang`
 --
 ALTER TABLE `tabel_jenis_barang`
   ADD PRIMARY KEY (`id_jenis`);
 
 --
--- Indexes for table `tabel_user`
+-- Indeks untuk tabel `tabel_user`
 --
 ALTER TABLE `tabel_user`
   ADD PRIMARY KEY (`id_user`);

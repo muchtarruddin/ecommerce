@@ -1,3 +1,10 @@
+<?php 
+
+    require 'tabel/function.php';
+    
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
