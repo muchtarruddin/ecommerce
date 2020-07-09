@@ -35,7 +35,24 @@ class Tabel_Admin extends CI_Controller {
         else
         {
             $this->Tabel_Admin_model->tambahDataAdmin();
+            $this->session->set_flashdata('flash', 'ditambahkan');
             redirect('Tabel_Admin');
         }
+    }
+    
+    public function hapus($nama_admin)
+    {
+        $this->Tabel_Admin_model->hapusDataAdmin($nama_admin);
+        $this->session->set_flashdata('flash', 'dihapus');
+        redirect('Tabel_Admin');
+    }
+
+    public function detail($nama_admin)
+    {
+        $data['judul'] = 'Detail Data Admin';
+        $data['tabel_admin'] = $this->Tabel_Admin_model->getAdminByNama($nama_admin);
+        $this->load->view('templates/header', $data);
+        $this->load->view('tabel_admin/detail', $data);
+        $this->load->view('templates/footer');
     }
 }

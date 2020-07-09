@@ -36,7 +36,15 @@ class Tabel_User extends CI_Controller {
         else
         {
             $this->Tabel_User_model->tambahDataUser();
+            $this->session->set_flashdata('flash', 'ditambahkan');
             redirect('Tabel_User');
         }
+    }
+    
+    public function hapus($nama_user)
+    {
+        $this->Tabel_User_model->hapusDataUser($nama_user);
+        $this->session->set_flashdata('flash', 'dihapus');
+        redirect('Tabel_User');
     }
 }

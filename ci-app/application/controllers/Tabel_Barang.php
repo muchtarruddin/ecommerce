@@ -36,7 +36,15 @@ class Tabel_Barang extends CI_Controller {
         else
         {
             $this->Tabel_Barang_model->tambahDataBarang();
+            $this->session->set_flashdata('flash', 'ditambahkan');
             redirect('Tabel_Barang');
         }
+    }
+    
+    public function hapus($nama_barang)
+    {
+        $this->Tabel_Barang_model->hapusDataNamaBarang($nama_barang);
+        $this->session->set_flashdata('flash', 'dihapus');
+        redirect('Tabel_Barang');
     }
 }

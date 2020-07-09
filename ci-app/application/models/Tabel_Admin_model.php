@@ -19,4 +19,15 @@ class Tabel_Admin_model extends CI_model
 
         $this->db->insert('Tabel_Admin', $data);
     }
+
+    public function hapusDataAdmin($nama_admin)
+    {
+        // $this->db->where('nama_admin', $nama_admin);
+        $this->db->delete('Tabel_Admin', ['nama_admin' => $nama_admin]);
+    }
+
+    public function getAdminByNama($nama_admin)
+    {
+        return $this->db->get_where('Tabel_Admin', ['id_admin' => $nama_admin])->row_array();
+    }
 }

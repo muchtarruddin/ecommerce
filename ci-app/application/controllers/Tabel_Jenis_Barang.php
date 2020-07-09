@@ -32,7 +32,15 @@ class Tabel_Jenis_Barang extends CI_Controller {
         else
         {
             $this->Tabel_Jenis_Barang_model->tambahDataJenisBarang();
+            $this->session->set_flashdata('flash', 'ditambahkan');
             redirect('Tabel_Jenis_Barang');
         }
+    }
+
+    public function hapus($nama_jenis_barang)
+    {
+        $this->Tabel_Jenis_Barang_model->hapusDataJenisBarang($nama_jenis_barang);
+        $this->session->set_flashdata('flash', 'dihapus');
+        redirect('Tabel_Jenis_Barang');
     }
 }

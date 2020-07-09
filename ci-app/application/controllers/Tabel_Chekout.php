@@ -38,7 +38,15 @@ class Tabel_Chekout extends CI_Controller {
         else
         {
             $this->Tabel_Chekout_model->tambahDataChekout();
+            $this->session->set_flashdata('flash', 'ditambahkan');
             redirect('Tabel_Chekout');
         }
+    }
+    
+    public function hapus($id_chekout)
+    {
+        $this->Tabel_Chekout_model->hapusDataNamaChekout($id_chekout);
+        $this->session->set_flashdata('flash', 'dihapus');
+        redirect('Tabel_Chekout');
     }
 }
