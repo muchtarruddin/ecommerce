@@ -1,6 +1,7 @@
 <?php 
 
     require 'tabel/function.php';
+    $tabel_barang = query("SELECT * FROM tabel_barang")
 
 ?>
 
@@ -175,19 +176,21 @@
                 </div>
                 <br>
                 <div class="row" style="font-family:Open Sans">
+                <?php foreach( $tabel_barang as $row ) : ?>
                     <div class="col-md-6 col-lg-4">
                         <div class="card border-0 transform-on-hover">
                             <a class="lightbox" href="#">
-                                <img src="img/product/jacket.jpg" alt="Card Image" class="card-img-top">
+                                <img src="img/product/img/<?= $row["picture"]; ?>" alt="Card Image" class="card-img-top">
                             </a>
                             <div class="card-body">
-                                <h6><a href="#">ERIGO JACKET</a></h6>
-                                <p class="text-muted card-text">Rp 210.000</p>
+                                <h6><a href="#"><?= $row["nama_barang"]; ?></a></h6>
+                                <p class="text-muted card-text">Rp <?= $row["harga_barang"]; ?></p>
                                 <a href="" type="button" class="btn btn-primary"
                                     style="color: #FFFFFF; font-family:Open Sans">BUY</a>
                             </div>
                         </div>
                     </div>
+                <?php endforeach; ?>
                 </div>
             </div>
         </section>
@@ -215,5 +218,4 @@
         });
     </script>
 </body>
-
 </html>
