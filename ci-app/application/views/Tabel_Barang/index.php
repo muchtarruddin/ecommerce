@@ -26,7 +26,7 @@
                 <li class="list-group-item"><?= $tb['nama_barang']; ?>
                     <?= $tb['nama_barang']; ?>
                     <a href="<?= base_url(); ?>Tabel_Barang/hapus/<?= $tb['nama_barang']; ?>" class="badge badge-danger float-right" onclick="retrun confrim('yakin?');">hapus</a>
-                    
+                    <a href="<?= base_url(); ?>Tabel_Barang/ubah/<?= $tb['nama_barang']; ?>" class="badge badge-success float-right">ubah</a>
                     <a href="<?= base_url(); ?>Tabel_Barang/detail/<?= $tb['nama_barang']; ?>" class="badge badge-primary float-right">detail</a>
                 </li>
             <?php endforeach; ?>

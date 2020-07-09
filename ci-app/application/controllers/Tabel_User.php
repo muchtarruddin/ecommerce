@@ -47,4 +47,38 @@ class Tabel_User extends CI_Controller {
         $this->session->set_flashdata('flash', 'dihapus');
         redirect('Tabel_User');
     }
+    
+    public function detail($nama_user)
+    {
+        $data['judul'] = 'Detail Data Jenis User';
+        $data['tabel_user'] = $this->Tabel_User_model->getUserByNama($nama_user);
+        $this->load->view('templates/header', $data);
+        $this->load->view('tabel_user/detail', $data);
+        $this->load->view('templates/footer');
+    }
+    
+    public function ubah($nama_user)
+    {
+        $data['judul'] = 'Form Ubah Data User';
+        $data['tabel_user'] = $this->Tabel_User_model->getUserByNama($nama_user);
+       
+        $this->form_validation->set_rules('id_user', 'Id User', 'required|max_length[2]|min_length[2]');
+        $this->form_validation->set_rules('nama_user', 'Nama User', 'required');
+        $this->form_validation->set_rules('jenis_kel_user', 'Jenis Kelamin', 'required');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required');
+        $this->form_validation->set_rules('email_user', 'Email', 'required|valid_email');
+        $this->form_validation->set_rules('telepon', 'Phone Number', 'required|numeric|min_length[11]|max_length[12]');
+        if( $this->form_validation->run() == FALSE )
+        {
+            $this->load->view('templates/header', $data);
+            $this->load->view('tabel_user/ubah', $data);
+            $this->load->view('templates/footer');
+        }
+        else
+        {
+            $this->Tabel_User_model->ubahDataUser();
+            $this->session->set_flashdata('flash', 'diubah');
+            redirect('Tabel_User');
+        }
+    }
 }

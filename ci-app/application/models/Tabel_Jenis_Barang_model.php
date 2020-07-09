@@ -16,4 +16,20 @@ class Tabel_Jenis_Barang_model extends CI_model
 
         $this->db->insert('Tabel_Jenis_Barang', $data);
     }
+    
+    public function getJenisBarangByNama($nama_jenis_barang)
+    {
+        return $this->db->get_where('Tabel_Jenis_Barang', ['nama_jenis_barang' => $nama_jenis_barang])->row_array();
+    }
+    
+    public function updateDataJenisBarang()
+    {
+        $data = [
+            "id_jenis" => $this->input->post('id_jenis', true),
+            "nama_jenis_barang" => $this->input->post('nama_jenis_barang', true),
+        ];
+
+        $this->db->where('id_jenis', $this->input->post('id_jenis'));
+        $this->db->update('Tabel_Jenis_Barang', $data);
+    }
 }

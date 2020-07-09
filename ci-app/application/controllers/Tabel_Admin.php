@@ -55,4 +55,28 @@ class Tabel_Admin extends CI_Controller {
         $this->load->view('tabel_admin/detail', $data);
         $this->load->view('templates/footer');
     }
+    
+    public function ubah($nama_admin)
+    {
+        $data['judul'] = 'Form Ubah Data Admin';
+        $data['tabel_admin'] = $this->Tabel_Admin_model->getAdminByNama($nama_admin);
+        
+        $this->form_validation->set_rules('id_admin', 'Id Admin', 'required|max_length[1]|min_length[1]');
+        $this->form_validation->set_rules('nama_admin', 'Nama Admin', 'required');
+        $this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required');
+        $this->form_validation->set_rules('telepon', 'Phone Number', 'required|numeric|min_length[11]|max_length[12]');
+        if( $this->form_validation->run() == FALSE )
+        {
+            $this->load->view('templates/header', $data);
+            $this->load->view('tabel_admin/ubah', $data);
+            $this->load->view('templates/footer');
+        }
+        else
+        {
+            $this->Tabel_Admin_model->ubahDataAdmin();
+            $this->session->set_flashdata('flash', 'diubah');
+            redirect('Tabel_Admin');
+        }
+    }
 }

@@ -26,6 +26,7 @@
                 <li class="list-group-item">
                     <?= $ta['nama_admin']; ?>
                     <a href="<?= base_url(); ?>Tabel_Admin/hapus/<?= $ta['nama_admin']; ?>" class="badge badge-danger float-right" onclick="retrun confrim('yakin?');">hapus</a>
+                    <a href="<?= base_url(); ?>Tabel_Admin/ubah/<?= $ta['nama_admin']; ?>" class="badge badge-success float-right">ubah</a>
                     <a href="<?= base_url(); ?>Tabel_Admin/detail/<?= $ta['nama_admin']; ?>" class="badge badge-primary float-right">detail</a>
                 </li>
             <?php endforeach; ?>
