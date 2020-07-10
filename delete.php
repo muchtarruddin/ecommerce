@@ -2,6 +2,12 @@
 
 require 'tabel/function.php';
 
+session_start();
+    if(!isset($_SESSION["login_admin"])) {
+        header("location:login.php");
+        exit;
+    }
+
 $idpro = $_GET["id_barang"];
 
 if ( hapus($idpro) > 0) {

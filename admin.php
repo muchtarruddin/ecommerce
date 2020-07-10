@@ -3,6 +3,12 @@
     require 'tabel/function.php';
     $tabel_barang = query("SELECT * FROM tabel_barang");
 
+    session_start();
+    if(!isset($_SESSION["login_admin"])) {
+        header("location:login.php");
+        exit;
+    }
+
 ?>
 
 <!DOCTYPE html>

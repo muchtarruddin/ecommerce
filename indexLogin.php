@@ -1,7 +1,13 @@
 <?php 
 
     require 'tabel/function.php';
-    $tabel_barang = query("SELECT * FROM tabel_barang")
+    $tabel_barang = query("SELECT * FROM tabel_barang");
+
+    session_start();
+    if(!isset($_SESSION["login_user"])) {
+        header("location:login.php");
+        exit;
+    }
 
 ?>
 
@@ -59,7 +65,7 @@
                 </div>
                 <div class="col-md-4 col-12 text-right">
                     <p class="my-md-4 header-links">
-                        <a href="login.php" class="px-2">Sign In</a>
+                        <a href="logout.php" class="px-2">Logout</a>
                     </p>
                 </div>
             </div>
