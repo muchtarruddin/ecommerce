@@ -154,6 +154,7 @@
                 <th scope="col">Barang</th>
                 <th scope="col">Harga</th>
                 <th scope="col">Status</th>
+                <th scope="col">Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -163,10 +164,10 @@
                         <th scope="row"><?= $i; ?></th>
                         <td><?= $row["nama_barang"]; ?></td>
                         <td>Rp<?= $row["harga_barang"]; ?></td>
-                        <td style="color:blue">
-                        <p><?= $row["status"]; ?></p>
-                        <a href="">CETAK</a>
+                        <td style="color:red">
+                            <p><?= $row["status"]; ?></p>
                         </td>
+                        <td><a class="btn btn-primary" href="#" role="button">CETAK</a></td>
                     </tr>
                 <<?php $i++; ?> <?php endforeach; ?>
             </tbody>

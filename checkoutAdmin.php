@@ -36,37 +36,39 @@
                     <a href="#">Show</a>
                 </div>
             </li>
-            <li><a href="transaction.php" style="color: #f5f6fa">Transaction</a></li>
-            <li><a href="user.php" style="color: #f5f6fa">User</a></li>
+            <li><a href="#" style="color: #f5f6fa">Transaction</a></li>
             <li><a href="logout.php" style="color: #f5f6fa">Logout</a></li>
         </ul>
     </div>
     <!--/Header-->
 
     <!--tabel-->
-    <table>
-        <tr>
-            <th>No</th>
-            <th>Barang</th>
-            <th>Nama Barang</th>
-            <th>Harga Barang</th>
-            <th>Opsi</th>
-        </tr>
-        <?php $i = 1; ?>
-        <?php foreach( $tabel_barang as $row ) : ?>
-        <tr>
-            <td><?= $i; ?></td>
-            <td><img style="width:150px; height:150px" src="img/product/<?= $row["picture"]; ?>" alt=""></td>
-            <td><?= $row["nama_barang"]; ?></td>
-            <td>Rp<?= $row["harga_barang"]; ?></td>
-            <td>
-                <a href="ubah.php?id_barang=<?= $row["id_barang"]; ?>" style="color: #2ecc71">Edit</a>
-                <a href="delete.php?id_barang=<?= $row["id_barang"]; ?>" style="color: #e74c3c"
-                    onclick="return confirm('yakin?')">Delete</a>
-                <a href="download.php?filename=<?= $row['picture']; ?>">Download</a>
-            </td>
-        </tr>
-        <<?php $i++; ?> <?php endforeach; ?> </table> <!--tabel-->
+    <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                <th scope="col">No</th>
+                <th scope="col">Barang</th>
+                <th scope="col">Harga</th>
+                <th scope="col">VERIFY</th>
+                <th scope="col">Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $i = 1; ?>
+                <?php foreach( $tabel_checkout as $row ) : ?>
+                    <tr>
+                        <th scope="row"><?= $i; ?></th>
+                        <td><?= $row["nama_barang"]; ?></td>
+                        <td>Rp<?= $row["harga_barang"]; ?></td>
+                        <td style="color:red">
+                            <a class="btn btn-primary" href="#" role="button"><?= $row["status"]; ?></a>
+                        </td>
+                        <td><a class="btn btn-primary" href="#" role="button">CETAK</a></td>
+                    </tr>
+                <<?php $i++; ?> <?php endforeach; ?>
+            </tbody>
+        </table>
+    <!--tabel-->
 
 </body>
 
