@@ -1,9 +1,3 @@
-<?php 
-
-    require 'tabel/function.php';
-    $tabel_barang = query("SELECT * FROM tabel_barang")
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +8,7 @@
     <title>LOCALNESIA</title>
 
     <!--Bootstrap-->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?= base_url()?>source/css/bootstrap.min.css">
 
     <!--Font Awesome-->
     <script src="https://kit.fontawesome.com/23412c6a8d.js"></script>
@@ -23,18 +17,18 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 
     <!--Custom CSS-->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="<?= base_url()?>source/css/style.css">
 
     <!--Owl Carousell-->
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.css">
+    <link rel="stylesheet" href="<?= base_url()?>source/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="<?= base_url()?>source/css/owl.theme.default.css">
     <script src="js/owl.carousel.js"></script>
 
     <!--BaguetteBox-->
-    <link rel="stylesheet" href="css/baguetteBox.min.css">
+    <link rel="stylesheet" href="<?= base_url()?>source/css/baguetteBox.min.css">
 
     <!--cards gallery-->
-    <link rel="stylesheet" href="css/cards-gallery.css">
+    <link rel="stylesheet" href="<?= base_url()?>source/css/cards-gallery.css">
 
 </head>
 
@@ -115,13 +109,13 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="img/assets/item-1.png" alt="First slide">
+                    <img class="d-block w-100" src="<?= base_url()?>source/img/assets/item-1.png" alt="First slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="img/assets/item-2.png" alt="Second slide">
+                    <img class="d-block w-100" src="<?= base_url()?>source/img/assets/item-2.png" alt="Second slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="img/assets/item-3.png" alt="Third slide">
+                    <img class="d-block w-100" src="<?= base_url()?>source/img/assets/item-3.png" alt="Third slide">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -176,11 +170,11 @@
                 </div>
                 <br>
                 <div class="row" style="font-family:Open Sans">
-                <?php foreach( $tabel_barang as $row ) : ?>
+                <?php foreach( $barang as $row ) : ?>
                     <div class="col-md-6 col-lg-4">
                         <div class="card border-0 transform-on-hover">
                             <a class="lightbox" href="#">
-                                <img src="img/product/<?= $row["picture"]; ?>" alt="Card Image" class="card-img-top">
+                                <img src="<?=base_url()?>upload/product/<?= $row["picture"]; ?>" alt="Card Image" class="card-img-top">
                             </a>
                             <div class="card-body">
                                 <h6><a href="#"><?= $row["nama_barang"]; ?></a></h6>
@@ -205,13 +199,13 @@
     </footer>
 
     <!--Javascript-->
-    <script src="js/jquery-3.5.1.slim.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="<?= base_url()?>source/js/jquery-3.5.1.slim.min.js"></script>
+    <script src="<?= base_url()?>source/js/popper.min.js"></script>
+    <script src="<?= base_url()?>source/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/baguetteBox.min.js"></script>
+    <script src="<?= base_url()?>source/js/main.js"></script>
+    <script src="<?= base_url()?>source/js/jquery.min.js"></script>
+    <script src="<?= base_url()?>source/js/baguetteBox.min.js"></script>
     <script>
         baguetteBox.run('.cards-gallery', {
             animation: 'slideIn'
