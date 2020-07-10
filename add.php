@@ -2,6 +2,12 @@
 
     require 'tabel/function.php';
 
+    session_start();
+    if(!isset($_SESSION["login_admin"])) {
+        header("location:login.php");
+        exit;
+    }
+
     if ( isset($_POST["submit"]) ) {
 
     if (tambah($_POST) > 0) {
@@ -61,10 +67,17 @@
         <form action="" method="post" enctype="multipart/form-data">
             <label for="nama_barang">Nama</label>
             <input type="text" id="nama_barang" name="nama_barang" placeholder="Product name.." required>
+<<<<<<< HEAD
 
             <label for="harga_barang">Price</label>
             <input type="number" id="harga_barang" name="harga_barang" placeholder="Product price.." required>
 
+=======
+
+            <label for="harga_barang">Price</label>
+            <input type="number" id="harga_barang" name="harga_barang" placeholder="Product price.." required>
+
+>>>>>>> e6cb0291f313cf16c3d167da2b1b9859fea4fbe7
             <!-- <label for="stock">Stock</label>
             <input type="text" id="stock" name="stock" placeholder="Product stock.." required> -->
 

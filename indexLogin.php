@@ -1,7 +1,13 @@
 <?php 
 
     require 'tabel/function.php';
-    $tabel_barang = query("SELECT * FROM tabel_barang")
+    $tabel_barang = query("SELECT * FROM tabel_barang");
+
+    session_start();
+    if(!isset($_SESSION["login_user"])) {
+        header("location:login.php");
+        exit;
+    }
 
 ?>
 
@@ -59,12 +65,7 @@
                 </div>
                 <div class="col-md-4 col-12 text-right">
                     <p class="my-md-4 header-links">
-<<<<<<< HEAD
-                        <a href="loginAdmin.php" class="px-2">Sign In</a>
-                        <a href="#" class="px-1">Create an Account</a>
-=======
-                        <a href="login.php" class="px-2">Sign In</a>
->>>>>>> e6cb0291f313cf16c3d167da2b1b9859fea4fbe7
+                        <a href="logout.php" class="px-2">Logout</a>
                     </p>
                 </div>
             </div>
@@ -100,7 +101,7 @@
                         <i class="fas fa-search p-2"></i>
                     </li>
                     <li class="nav-item border rounded-circle mx-2 basket-icon">
-                        <i class="fas fa-shopping-basket p-2"></i>
+                        <a href="checkout.php"><i class="fas fa-shopping-basket p-2"></i></a>
                     </li>
                 </div>
             </nav>

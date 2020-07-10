@@ -1,14 +1,13 @@
 <?php 
 
     require 'tabel/function.php';
-    $tabel_barang = query("SELECT * FROM tabel_barang");
+    $tabel_checkout = query("SELECT * FROM tabel_checkout");
 
     session_start();
     if(!isset($_SESSION["login_admin"])) {
         header("location:login.php");
         exit;
     }
-    
 
 ?>
 
@@ -67,8 +66,7 @@
                 <a href="download.php?filename=<?= $row['picture']; ?>">Download</a>
             </td>
         </tr>
-        <<?php $i++; ?> <?php endforeach; ?>
-        </table> <!--tabel-->
+        <<?php $i++; ?> <?php endforeach; ?> </table> <!--tabel-->
 
 </body>
 
