@@ -18,7 +18,6 @@
     //ambil data dari tiap elemen
     $nama_barang = htmlspecialchars($data["nama_barang"]);
     $harga_barang = htmlspecialchars($data["harga_barang"]);
-    $picture = htmlspecialchars($data["picture"]);
     
     //upload gambar
     $picture = upload();
@@ -29,7 +28,7 @@
     //query insert data
     $query = "INSERT INTO tabel_barang
                 VALUES
-                ('','','','','$nama_barang',$harga_barang,'$picture')
+                ('','$nama_barang',$harga_barang,'$picture')
                 ";
     mysqli_query($conn, $query);
 

@@ -52,7 +52,7 @@
             <td><?= $i; ?></td>
             <td><img style="width:150px; height:150px" src="img/product/<?= $row["picture"]; ?>" alt=""></td>
             <td><?= $row["nama_barang"]; ?></td>
-            <td><?= $row["harga_barang"]; ?></td>
+            <td>Rp<?= $row["harga_barang"]; ?></td>
             <td>
                 <a href="ubah.php?id_barang=<?= $row["id_barang"]; ?>" style="color: #2ecc71">Edit</a>
                 <a href="delete.php?id_barang=<?= $row["id_barang"]; ?>" style="color: #e74c3c"
