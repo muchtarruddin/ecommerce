@@ -22,9 +22,9 @@
     }
     
     //tombol cari ditekan
-    if (isset($_POST["cari"]) )
+    if (isset($_GET["cari"]) )
     {
-        $tabel_barang = cari($_POST["keyword"]);
+        $tabel_barang = cari($_GET["keyword"]);
     }
 
 ?>
@@ -86,9 +86,9 @@
                         <a href="logout.php" class="px-2">Logout</a>
                     </p>
                 </div>
-                <form action="" method="post" size="40" autofocus>
+                <!--<form action="" method="post" size="40" autofocus>
                     <button type ="submit" name="cari">Cari!</button>
-                </form>
+                </form>-->
             </div>
         </div>
 
@@ -119,7 +119,7 @@
                 </div>
                 <div class="navbar-nav navbar sticky-top">
                     <li class="nav-item mx-2 search-icon">
-                        <form action="" method="post">
+                        <form action="" method="get">
                             <input class="form-control mr-sm-2" type="text" name="keyword" placeholder="Nama Barang" autocomplete="off">
                             <i><button class="btn btn-outline-primary my-2 my-sm-0" type="submit" name="cari">Cari</button></i>
                         </form>
