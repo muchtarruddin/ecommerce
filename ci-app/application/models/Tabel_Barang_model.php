@@ -11,10 +11,11 @@ class Tabel_Barang_model extends CI_model
     {
         $data = [
             "id_barang" => $this->input->post('id_barang', true),
-            "id_user" => $this->input->post('id_user', true),
-            "id_admin" => $this->input->post('id_admin', true),
+            //"id_user" => $this->input->post('id_user', true),
+            //"id_admin" => $this->input->post('id_admin', true),
             "nama_barang" => $this->input->post('nama_barang', true),
             "harga_barang" => $this->input->post('harga_barang', true),
+            "picture" => $this->input->post('picture', true),
         ];
 
         $this->db->insert('Tabel_Barang', $data);
@@ -30,10 +31,11 @@ class Tabel_Barang_model extends CI_model
     {
         $data = [
             "id_barang" => $this->input->post('id_barang', true),
-            "id_user" => $this->input->post('id_user', true),
-            "id_admin" => $this->input->post('id_admin', true),
+            //"id_user" => $this->input->post('id_user', true),
+            //"id_admin" => $this->input->post('id_admin', true),
             "nama_barang" => $this->input->post('nama_barang', true),
             "harga_barang" => $this->input->post('harga_barang', true),
+            "picture" => $this->input->post('picture', true),
         ];
 
         $this->db->where('id_barang', $this->input->post('id_barang'));
