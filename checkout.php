@@ -1,7 +1,7 @@
 <?php 
 
-    require 'tabel/function.php';
-    $tabel_barang = query("SELECT * FROM tabel_barang");
+    require 'function2.php';
+    $tabel_checkout = query("SELECT * FROM tabel_checkout");
 
     session_start();
     if(!isset($_SESSION["login_user"])) {
@@ -80,7 +80,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">HOME <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="indexLogin.php">HOME <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">FEATURES</a>
@@ -101,7 +101,7 @@
                         <i class="fas fa-search p-2"></i>
                     </li>
                     <li class="nav-item border rounded-circle mx-2 basket-icon">
-                        <a href="checkout.php"><i class="fas fa-shopping-basket p-2"></i></a>
+                        <i class="fas fa-shopping-basket p-2"></i>
                     </li>
                 </div>
             </nav>
@@ -112,32 +112,6 @@
     <main>
 
         <!--First Slider-->
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="d-block w-100" src="img/assets/item-1.png" alt="First slide">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="img/assets/item-2.png" alt="Second slide">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="img/assets/item-3.png" alt="Third slide">
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
         <!--/First Slider-->
 
         <!--Second Slider-->
@@ -173,32 +147,30 @@
         <!--/Second Slider-->
 
         <!--Product-->
-        <section class="gallery-block cards-gallery">
-            <div class="container">
-                <br><br>
-                <div class="heading">
-                    <h2 style="color:#6BAEE0">PRODUCT</h2>
-                </div>
-                <br>
-                <div class="row" style="font-family:Open Sans">
-                <?php foreach( $tabel_barang as $row ) : ?>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0 transform-on-hover">
-                            <a class="lightbox" href="#">
-                                <img src="img/product/<?= $row["picture"]; ?>" alt="Card Image" class="card-img-top">
-                            </a>
-                            <div class="card-body">
-                                <h6><a href="#"><?= $row["nama_barang"]; ?></a></h6>
-                                <p class="text-muted card-text">Rp <?= $row["harga_barang"]; ?></p>
-                                <a href="" type="button" class="btn btn-primary"
-                                    style="color: #FFFFFF; font-family:Open Sans">BUY</a>
-                            </div>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-                </div>
-            </div>
-        </section>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                <th scope="col">No</th>
+                <th scope="col">Barang</th>
+                <th scope="col">Harga</th>
+                <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $i = 1; ?>
+                <?php foreach( $tabel_checkout as $row ) : ?>
+                    <tr>
+                        <th scope="row"><?= $i; ?></th>
+                        <td><?= $row["nama_barang"]; ?></td>
+                        <td>Rp<?= $row["harga_barang"]; ?></td>
+                        <td style="color:blue">
+                        <p><?= $row["status"]; ?></p>
+                        <a href="">CETAK</a>
+                        </td>
+                    </tr>
+                <<?php $i++; ?> <?php endforeach; ?>
+            </tbody>
+        </table>
         <!--/Product-->
 
     </main>
