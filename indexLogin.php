@@ -1,7 +1,19 @@
 <?php 
 
     require 'tabel/function.php';
-    $tabel_barang = query("SELECT * FROM tabel_barang");
+
+    //pagination
+    //konfigurasi
+        $jumlahdataperhalaman = 2;
+        $jumlahData = count(query("SELECT * FROM tabel_barang"));
+        $jumlahHalaman = ceil($jumlahData / $jumlahdataperhalaman);
+        $halamanaktif = ( isset($_GET["halaman"]) ) ? $_GET["halaman"] : 1;
+        // halaman = 2, awaldata = 2
+        // halaman = 3, awaldata = 4
+        $awaldata = ($jumlahdataperhalaman * $halamanaktif) - $jumlahdataperhalaman;
+        
+
+    $tabel_barang = query("SELECT * FROM tabel_barang LIMIT $awaldata, $jumlahdataperhalaman");
 
     session_start();
     if(!isset($_SESSION["login_user"])) {
@@ -206,8 +218,12 @@
                                     style="color: #FFFFFF; font-family:Open Sans">BUY</a>
                             </div>
                         </div>
+                        <?php endforeach; ?>
+                <!--navigasi-->
+                <?php for($i = 1; $i <=$jumlahHalaman; $i++): ?>
+                <a href=""><?= $i; ?></a>
+                <?php endfor;?>
                     </div>
-                <?php endforeach; ?>
                 </div>
             </div>
         </section>
