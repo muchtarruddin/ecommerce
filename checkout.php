@@ -168,7 +168,7 @@
                         <a href="">CETAK</a>
                         </td>
                     </tr>
-                <<?php $i++; ?> <?php endforeach; ?>
+                <?php $i++; ?> <?php endforeach; ?>
             </tbody>
         </table>
         <!--/Product-->

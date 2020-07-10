@@ -59,12 +59,8 @@
                 </div>
                 <div class="col-md-4 col-12 text-right">
                     <p class="my-md-4 header-links">
-<<<<<<< HEAD
-                        <a href="loginAdmin.php" class="px-2">Sign In</a>
                         <a href="#" class="px-1">Create an Account</a>
-=======
                         <a href="login.php" class="px-2">Sign In</a>
->>>>>>> e6cb0291f313cf16c3d167da2b1b9859fea4fbe7
                     </p>
                 </div>
             </div>

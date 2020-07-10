@@ -8,6 +8,12 @@
         header("location:login.php");
         exit;
     }
+    
+    //tombol cari ditekan
+    if (isset($_POST["cari"]) )
+    {
+        $tabel_barang = cari($_POST["keyword"]);
+    }
 
 ?>
 
@@ -68,6 +74,9 @@
                         <a href="logout.php" class="px-2">Logout</a>
                     </p>
                 </div>
+                <form action="" method="post" size="40" autofocus>
+                    <button type ="submit" name="cari">Cari!</button>
+                </form>
             </div>
         </div>
 
@@ -97,8 +106,11 @@
                     </ul>
                 </div>
                 <div class="navbar-nav">
-                    <li class="nav-item border rounded-circle mx-2 search-icon">
-                        <i class="fas fa-search p-2"></i>
+                    <li class="nav-item mx-2 search-icon">
+                        <form action="" method="post">
+                            <input class="form-control mr-sm-2" type="text" name="keyword" placeholder="Nama Barang" autocomplete="off">
+                            <i><button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="cari">Cari</button></i>
+                        </form>
                     </li>
                     <li class="nav-item border rounded-circle mx-2 basket-icon">
                         <a href="checkout.php"><i class="fas fa-shopping-basket p-2"></i></a>

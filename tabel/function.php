@@ -112,4 +112,19 @@ function ubah($data){
 
     return mysqli_affected_rows($conn);
 }
+
+function cari($keyword)
+{
+    $query = "SELECT * FROM tabel_barang
+                WHERE
+            id_barang LIKE '%$keyword%' OR
+            id_user LIKE '%$keyword%' OR
+            id_jenis LIKE '%$keyword%' OR
+            id_admin LIKE '%$keyword%' OR
+            nama_barang LIKE '%$keyword%' OR
+            harga_barang LIKE '%$keyword%'
+            ";
+
+    return query($query);
+}
 ?>
