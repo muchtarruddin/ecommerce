@@ -4,7 +4,7 @@
 
     //pagination
     //konfigurasi
-        $jumlahdataperhalaman = 2;
+        $jumlahdataperhalaman = 1;
         $jumlahData = count(query("SELECT * FROM tabel_barang"));
         $jumlahHalaman = ceil($jumlahData / $jumlahdataperhalaman);
         $halamanaktif = ( isset($_GET["halaman"]) ) ? $_GET["halaman"] : 1;
@@ -218,13 +218,13 @@
                                     style="color: #FFFFFF; font-family:Open Sans">BUY</a>
                             </div>
                         </div>
-                        <?php endforeach; ?>
-                <!--navigasi-->
-                <?php for($i = 1; $i <=$jumlahHalaman; $i++): ?>
-                <a href=""><?= $i; ?></a>
-                <?php endfor;?>
                     </div>
                 </div>
+                <?php endforeach; ?>
+                <!--navigasi-->
+                <?php for($i = 1; $i <=$jumlahHalaman; $i++): ?>
+                <a href="?halaman=<?= $i; ?>"><?= $i; ?></a>
+                <?php endfor;?>
             </div>
         </section>
         <!--/Product-->
