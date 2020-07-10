@@ -223,7 +223,11 @@
                 <?php endforeach; ?>
                 <!--navigasi-->
                 <?php for($i = 1; $i <=$jumlahHalaman; $i++): ?>
-                <a href="?halaman=<?= $i; ?>"><?= $i; ?></a>
+                <?php if( $i ==$halamanaktif ) : ?>
+                <a href="?halaman=<?= $i; ?>" style="font-weight: bold; collor: green;"><?= $i; ?></a>
+                <?php else : ?>
+                <a href="?halaman=<?= $i; ?>"><?= $i; ?></a>        
+                <?php endif; ?>
                 <?php endfor;?>
             </div>
         </section>
