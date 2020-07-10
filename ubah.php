@@ -1,41 +1,45 @@
-<?php 
-
+<?php
     require 'tabel/function.php';
 
-    if ( isset($_POST["submit"]) ) {
+    //ambil data di url
+    $id_barang = $_GET["id_barang"];
 
-    if (tambah($_POST) > 0) {
+    //query data berdasar id
+    $barang = query("SELECT * FROM tabel_barang WHERE id_barang = $id_barang")[0];
+
+    //cek apakah tombol submit sudah ditekan atau belum
+if ( isset($_POST["submit"]) ) {
+
+    if (ubah($_POST) > 0) {
         echo "
             <script>
-                alert('data berhasil ditambahkan!');
+                alert('data berhasil diubah!');
                 document.location.href = 'admin.php';
             </script>
         ";
     } else {
         echo "
             <script>
-                alert('data gagal ditambahkan!');
-                document.location.href = 'admin.php';
+                alert('data gagal diubah!');
+                document.location.href = 'ubah.php';
             </script>
         ";
     }
+
 }
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Page | LOCALNESIA</title>
+    <title>Ubah Produk</title>
     <link rel="stylesheet" href="css/styleAdmin.css">
     <link rel="stylesheet" href="css/addStyle.css">
 </head>
-
 <body>
-
     <!--Header-->
     <div class="header">
         <p>LOCALNESIA</p>
@@ -55,24 +59,23 @@
         </ul>
     </div>
     <!--/Header-->
+        <div class='form-isi'>
+            <form action="" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="id_barang" id="id_barang" value="<?= $barang["id_barang"]; ?>">
+            <input type="hidden" name="gambarLama" value="<?= $barang["picture"]; ?>">
 
-    <!--tabel-->
-    <div class='form-isi'>
-        <form action="" method="post" enctype="multipart/form-data">
-            <label for="nama_barang">Nama Barang</label>
-            <input type="text" id="nama_barang" name="nama_barang" placeholder="Input nama barang.." required>
+            <label for="nama_barang">Nama</label>
+            <input type="text" id="nama_barang" name="nama_barang" placeholder="Nama Barang.." required value="<?= $barang["nama_barang"]; ?>">
 
-            <label for="harga_barang">Harga Barang</label>
-            <input type="number" id="harga_barang" name="harga_barang" placeholder="Input harga barang.." required>
-
+            <label for="harga_barang">Harga</label>
+            <input type="number" id="harga_barang" name="harga_barang" placeholder="Harga Barang.." required value="<?= $barang["harga_barang"]; ?>">
+            
             <label for="picture">Picture</label> <br>
+            <img src="img/product/<?= $barang['picture']; ?>" alt="" style="width:10%">
             <input type="file" id="picture" name="picture">
         
             <input type="submit" name="submit" value="submit" id="real-file">
-        </form>
+            </form>
     </div>
-    <!--tabel-->
-
 </body>
-
 </html>

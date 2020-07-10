@@ -54,8 +54,8 @@
             <td><?= $row["nama_barang"]; ?></td>
             <td><?= $row["harga_barang"]; ?></td>
             <td>
-                <a href="ubah.php?idpro=<?= $row["id_barang"]; ?>" style="color: #2ecc71">Edit</a>
-                <a href="delete.php?idpro=<?= $row["id_barang"]; ?>" style="color: #e74c3c"
+                <a href="ubah.php?id_barang=<?= $row["id_barang"]; ?>" style="color: #2ecc71">Edit</a>
+                <a href="delete.php?id_barang=<?= $row["id_barang"]; ?>" style="color: #e74c3c"
                     onclick="return confirm('yakin?')">Delete</a>
                 <a href="download.php?filename=<?= $row['picture']; ?>">Download</a>
             </td>
