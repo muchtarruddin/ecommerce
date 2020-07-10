@@ -38,7 +38,7 @@
 
     <!--Header-->
     <div class="header">
-        <p>LOCALNESIA</p>
+        <H1 style="color:white">ADMIN | LOCALNESIA</H1>
     </div>
     <div class="menu">
         <ul>
@@ -59,11 +59,14 @@
     <!--tabel-->
     <div class='form-isi'>
         <form action="" method="post" enctype="multipart/form-data">
-            <label for="nama_barang">Nama Barang</label>
-            <input type="text" id="nama_barang" name="nama_barang" placeholder="Input nama barang.." required>
+            <label for="nama_barang">Nama</label>
+            <input type="text" id="nama_barang" name="nama_barang" placeholder="Product name.." required>
 
-            <label for="harga_barang">Harga Barang</label>
-            <input type="number" id="harga_barang" name="harga_barang" placeholder="Input harga barang.." required>
+            <label for="harga_barang">Price</label>
+            <input type="number" id="harga_barang" name="harga_barang" placeholder="Product price.." required>
+
+            <!-- <label for="stock">Stock</label>
+            <input type="text" id="stock" name="stock" placeholder="Product stock.." required> -->
 
             <label for="picture">Picture</label> <br>
             <input type="file" id="picture" name="picture">
