@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Jul 2020 pada 18.57
+-- Waktu pembuatan: 10 Jul 2020 pada 06.05
 -- Versi server: 10.1.36-MariaDB
 -- Versi PHP: 7.2.11
 
@@ -30,10 +30,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `tabel_admin` (
   `id_admin` int(11) NOT NULL,
-  `nama_admin` varchar(30) DEFAULT NULL,
-  `jenis_kelamin` varchar(10) DEFAULT NULL,
-  `alamat` varchar(30) DEFAULT NULL,
-  `telepon` int(11) DEFAULT NULL,
+  `nama_admin` varchar(100) DEFAULT NULL,
+  `alamat` varchar(100) DEFAULT NULL,
+  `telepon` varchar(100) DEFAULT NULL,
   `password` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -41,10 +40,8 @@ CREATE TABLE `tabel_admin` (
 -- Dumping data untuk tabel `tabel_admin`
 --
 
-INSERT INTO `tabel_admin` (`id_admin`, `nama_admin`, `jenis_kelamin`, `alamat`, `telepon`, `password`) VALUES
-(1, 'Rudi', 'laki-laki', 'rungkut', 2147483647, NULL),
-(2, 'Aan', 'laki-laki', 'simo', 2147483647, NULL),
-(3, 'Mega', 'perempuan', 'kenjeran', 2147483647, NULL);
+INSERT INTO `tabel_admin` (`id_admin`, `nama_admin`, `alamat`, `telepon`, `password`) VALUES
+(1, 'admin', 'jl. rahasia', '031666666', 'admin');
 
 -- --------------------------------------------------------
 
@@ -57,7 +54,7 @@ CREATE TABLE `tabel_barang` (
   `id_user` int(11) DEFAULT NULL,
   `id_jenis` int(11) DEFAULT NULL,
   `id_admin` int(11) DEFAULT NULL,
-  `nama_barang` varchar(30) DEFAULT NULL,
+  `nama_barang` varchar(100) DEFAULT NULL,
   `harga_barang` int(11) DEFAULT NULL,
   `picture` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -67,18 +64,16 @@ CREATE TABLE `tabel_barang` (
 --
 
 INSERT INTO `tabel_barang` (`id_barang`, `id_user`, `id_jenis`, `id_admin`, `nama_barang`, `harga_barang`, `picture`) VALUES
-(1001, 11, 101, 1, 'liquid', 150000, NULL),
-(1002, 22, 102, 2, 'kipas', 200000, NULL),
-(1003, 33, 103, 3, 'kiprok', 250000, NULL);
+(100, 10, 50, 1, 'Jaket Erigo', 250000, 'jacket.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tabel_chekout`
+-- Struktur dari tabel `tabel_checkout`
 --
 
-CREATE TABLE `tabel_chekout` (
-  `id_chekout` int(11) NOT NULL,
+CREATE TABLE `tabel_checkout` (
+  `id_checkout` int(11) NOT NULL,
   `id_admin` int(11) DEFAULT NULL,
   `id_user` int(11) DEFAULT NULL,
   `id_barang` int(11) DEFAULT NULL,
@@ -89,13 +84,11 @@ CREATE TABLE `tabel_chekout` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tabel_chekout`
+-- Dumping data untuk tabel `tabel_checkout`
 --
 
-INSERT INTO `tabel_chekout` (`id_chekout`, `id_admin`, `id_user`, `id_barang`, `tgl_penjualan`, `harga_jual`, `qty_jual`, `total_penjualan`) VALUES
-(1011, 1, 11, 1001, '2020-12-11', 150000, 2, 300000),
-(1012, 2, 22, 1002, '2019-11-20', 200000, 2, 400000),
-(1013, 3, 33, 1003, '2018-03-03', 250000, 3, 750000);
+INSERT INTO `tabel_checkout` (`id_checkout`, `id_admin`, `id_user`, `id_barang`, `tgl_penjualan`, `harga_jual`, `qty_jual`, `total_penjualan`) VALUES
+(1000, 1, 10, 100, '2020-10-10', 250000, 1, 250000);
 
 -- --------------------------------------------------------
 
@@ -105,7 +98,7 @@ INSERT INTO `tabel_chekout` (`id_chekout`, `id_admin`, `id_user`, `id_barang`, `
 
 CREATE TABLE `tabel_jenis_barang` (
   `id_jenis` int(11) NOT NULL,
-  `nama_jenis_barang` varchar(30) DEFAULT NULL
+  `nama_jenis_barang` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -113,9 +106,7 @@ CREATE TABLE `tabel_jenis_barang` (
 --
 
 INSERT INTO `tabel_jenis_barang` (`id_jenis`, `nama_jenis_barang`) VALUES
-(101, 'vapor'),
-(102, 'listri'),
-(103, 'motor');
+(50, 'Jaket');
 
 -- --------------------------------------------------------
 
@@ -125,11 +116,11 @@ INSERT INTO `tabel_jenis_barang` (`id_jenis`, `nama_jenis_barang`) VALUES
 
 CREATE TABLE `tabel_user` (
   `id_user` int(11) NOT NULL,
-  `nama_user` varchar(30) DEFAULT NULL,
-  `jenis_kel_user` varchar(10) DEFAULT NULL,
-  `alamat` varchar(30) DEFAULT NULL,
-  `email_user` varchar(30) DEFAULT NULL,
-  `telepon` int(11) DEFAULT NULL,
+  `nama_user` varchar(100) DEFAULT NULL,
+  `jenis_kel_user` varchar(100) DEFAULT NULL,
+  `alamat` varchar(100) DEFAULT NULL,
+  `email_user` varchar(100) DEFAULT NULL,
+  `telepon` varchar(100) DEFAULT NULL,
   `password` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -138,9 +129,7 @@ CREATE TABLE `tabel_user` (
 --
 
 INSERT INTO `tabel_user` (`id_user`, `nama_user`, `jenis_kel_user`, `alamat`, `email_user`, `telepon`, `password`) VALUES
-(11, 'Yehezkiel', 'laki-laki', 'rungkut', 'yehe@gmail.com', 2147483647, NULL),
-(22, 'abdul', 'laki-laki', 'simo', 'abdul@gmail.com', 2147483647, NULL),
-(33, 'haikal', 'laki-laki', 'kenjeran', 'haikal@gmail.com', 2147483647, NULL);
+(10, 'Jono', 'K', 'Jl. Bungur', 'jono@gmail.com', '08774213', 'apahayo');
 
 --
 -- Indexes for dumped tables
@@ -156,13 +145,19 @@ ALTER TABLE `tabel_admin`
 -- Indeks untuk tabel `tabel_barang`
 --
 ALTER TABLE `tabel_barang`
-  ADD PRIMARY KEY (`id_barang`);
+  ADD PRIMARY KEY (`id_barang`),
+  ADD KEY `id_user` (`id_user`),
+  ADD KEY `id_jenis` (`id_jenis`),
+  ADD KEY `id_admin` (`id_admin`);
 
 --
--- Indeks untuk tabel `tabel_chekout`
+-- Indeks untuk tabel `tabel_checkout`
 --
-ALTER TABLE `tabel_chekout`
-  ADD PRIMARY KEY (`id_chekout`);
+ALTER TABLE `tabel_checkout`
+  ADD PRIMARY KEY (`id_checkout`),
+  ADD KEY `id_admin` (`id_admin`),
+  ADD KEY `id_user` (`id_user`),
+  ADD KEY `id_barang` (`id_barang`);
 
 --
 -- Indeks untuk tabel `tabel_jenis_barang`
@@ -175,6 +170,60 @@ ALTER TABLE `tabel_jenis_barang`
 --
 ALTER TABLE `tabel_user`
   ADD PRIMARY KEY (`id_user`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
+--
+
+--
+-- AUTO_INCREMENT untuk tabel `tabel_admin`
+--
+ALTER TABLE `tabel_admin`
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `tabel_barang`
+--
+ALTER TABLE `tabel_barang`
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+
+--
+-- AUTO_INCREMENT untuk tabel `tabel_checkout`
+--
+ALTER TABLE `tabel_checkout`
+  MODIFY `id_checkout` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
+
+--
+-- AUTO_INCREMENT untuk tabel `tabel_jenis_barang`
+--
+ALTER TABLE `tabel_jenis_barang`
+  MODIFY `id_jenis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+
+--
+-- AUTO_INCREMENT untuk tabel `tabel_user`
+--
+ALTER TABLE `tabel_user`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `tabel_barang`
+--
+ALTER TABLE `tabel_barang`
+  ADD CONSTRAINT `tabel_barang_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `tabel_user` (`id_user`) ON DELETE CASCADE,
+  ADD CONSTRAINT `tabel_barang_ibfk_2` FOREIGN KEY (`id_jenis`) REFERENCES `tabel_jenis_barang` (`id_jenis`) ON DELETE CASCADE,
+  ADD CONSTRAINT `tabel_barang_ibfk_3` FOREIGN KEY (`id_admin`) REFERENCES `tabel_admin` (`id_admin`) ON DELETE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `tabel_checkout`
+--
+ALTER TABLE `tabel_checkout`
+  ADD CONSTRAINT `tabel_checkout_ibfk_1` FOREIGN KEY (`id_admin`) REFERENCES `tabel_admin` (`id_admin`) ON DELETE CASCADE,
+  ADD CONSTRAINT `tabel_checkout_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `tabel_user` (`id_user`) ON DELETE CASCADE,
+  ADD CONSTRAINT `tabel_checkout_ibfk_3` FOREIGN KEY (`id_barang`) REFERENCES `tabel_barang` (`id_barang`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
