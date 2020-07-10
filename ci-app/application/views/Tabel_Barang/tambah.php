@@ -19,7 +19,7 @@
                         <input type="text" class="form-control" id="id_barang" name= "id_barang" placehorder="contoh : 1004">
                         <small class="form-text text-danger"><?= form_error('id_barang') ; ?></small>
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="id_user">Id User</label>
                         <input type="text" class="form-control" id="id_user" name= "id_user" placehorder="contoh : 44">
                         <small class="form-text text-danger"><?= form_error('id_user') ; ?></small>
@@ -33,7 +33,7 @@
                         <label for="id_admin">Id Admin</label>
                         <input type="text" class="form-control" id="id_admin" name= "id_admin" placehorder="contoh : 4">
                         <small class="form-text text-danger"><?= form_error('id_admin') ; ?></small>
-                    </div>
+                    </div> -->
                     <div class="form-group">
                         <label for="nama_barang">Nama Barang</label>
                         <input type="text" class="form-control" id="nama_barang" name="nama_barang">
@@ -43,6 +43,11 @@
                         <label for="harga_barang">Harga Barang</label>
                         <input type="number" class="form-control" id="harga_barang" name="harga_barang">
                         <small class="form-text text-danger"><?= form_error('harga_barang') ; ?></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="picture">Upload Foto</label>
+                        <input type="file" class="form-control-file" id="picture" name="picture">
+                        <small class="from-text text-danger"></small>
                     </div>
                     <button type="submit" name="tambah" class="btn btn-primary float-right">Tambah Data</button>
                 </form>

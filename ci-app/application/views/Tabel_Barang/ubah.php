@@ -5,7 +5,7 @@
 
         <div class="card">
             <div class="card-header">
-                Form Tambah Data Barang
+                Form Ubah Data Barang
             </div>
             <div class="card-body">
                 <!-- <?php if( validation_errors() ) : ?>
@@ -14,12 +14,18 @@
                     </div>
                 <?php endif; ?> -->
                 <form action="" method="post">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="upload/product/jacket.img" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Foto Barang</h5>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label for="id_barang">Id Barang</label>
                         <input type="text" class="form-control" id="id_barang" name= "id_barang" placehorder="contoh : 1004" value="<?= $tabel_barang['id_barang']; ?>">
                         <small class="form-text text-danger"><?= form_error('id_barang') ; ?></small>
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="id_user">Id User</label>
                         <input type="text" class="form-control" id="id_user" name= "id_user" placehorder="contoh : 44" value="<?= $tabel_barang['id_user']; ?>">
                         <small class="form-text text-danger"><?= form_error('id_user') ; ?></small>
@@ -33,7 +39,7 @@
                         <label for="id_admin">Id Admin</label>
                         <input type="text" class="form-control" id="id_admin" name= "id_admin" placehorder="contoh : 4" value="<?= $tabel_barang['id_admin']; ?>">
                         <small class="form-text text-danger"><?= form_error('id_admin') ; ?></small>
-                    </div>
+                    </div> -->
                     <div class="form-group">
                         <label for="nama_barang">Nama Barang</label>
                         <input type="text" class="form-control" id="nama_barang" name="nama_barang" value="<?= $tabel_barang['nama_barang']; ?>">
