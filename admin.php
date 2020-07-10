@@ -19,7 +19,7 @@
 
     <!--Header-->
     <div class="header">
-        <p>LOCALNESIA</p>
+        <H1 style="color:white">ADMIN | LOCALNESIA</H1>
     </div>
     <div class="menu">
         <ul>
