@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 10 Jul 2020 pada 06.05
+-- Waktu pembuatan: 10 Jul 2020 pada 18.00
 -- Versi server: 10.1.36-MariaDB
 -- Versi PHP: 7.2.11
 
@@ -51,9 +51,6 @@ INSERT INTO `tabel_admin` (`id_admin`, `nama_admin`, `alamat`, `telepon`, `passw
 
 CREATE TABLE `tabel_barang` (
   `id_barang` int(11) NOT NULL,
-  `id_user` int(11) DEFAULT NULL,
-  `id_jenis` int(11) DEFAULT NULL,
-  `id_admin` int(11) DEFAULT NULL,
   `nama_barang` varchar(100) DEFAULT NULL,
   `harga_barang` int(11) DEFAULT NULL,
   `picture` varchar(100) DEFAULT NULL
@@ -63,8 +60,9 @@ CREATE TABLE `tabel_barang` (
 -- Dumping data untuk tabel `tabel_barang`
 --
 
-INSERT INTO `tabel_barang` (`id_barang`, `id_user`, `id_jenis`, `id_admin`, `nama_barang`, `harga_barang`, `picture`) VALUES
-(100, 10, 50, 1, 'Jaket Erigo', 250000, 'jacket.jpg');
+INSERT INTO `tabel_barang` (`id_barang`, `nama_barang`, `harga_barang`, `picture`) VALUES
+(100, 'Erigo Hoodie Shaggy Yellow', 225000, '5f07fe27c6687.jpg'),
+(104, 'Erigo Coach Your Mind Black', 185000, '5f0836bb03570.jpg');
 
 -- --------------------------------------------------------
 
@@ -74,21 +72,18 @@ INSERT INTO `tabel_barang` (`id_barang`, `id_user`, `id_jenis`, `id_admin`, `nam
 
 CREATE TABLE `tabel_checkout` (
   `id_checkout` int(11) NOT NULL,
-  `id_admin` int(11) DEFAULT NULL,
-  `id_user` int(11) DEFAULT NULL,
   `id_barang` int(11) DEFAULT NULL,
-  `tgl_penjualan` date DEFAULT NULL,
-  `harga_jual` int(11) DEFAULT NULL,
-  `qty_jual` int(11) DEFAULT NULL,
-  `total_penjualan` int(11) DEFAULT NULL
+  `nama_barang` varchar(100) DEFAULT NULL,
+  `harga_barang` int(11) DEFAULT NULL,
+  `status` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tabel_checkout`
 --
 
-INSERT INTO `tabel_checkout` (`id_checkout`, `id_admin`, `id_user`, `id_barang`, `tgl_penjualan`, `harga_jual`, `qty_jual`, `total_penjualan`) VALUES
-(1000, 1, 10, 100, '2020-10-10', 250000, 1, 250000);
+INSERT INTO `tabel_checkout` (`id_checkout`, `id_barang`, `nama_barang`, `harga_barang`, `status`) VALUES
+(1000, 100, 'Erigo Hoodie Shaggy Yellow', 225000, 'PENDING');
 
 -- --------------------------------------------------------
 
@@ -145,18 +140,13 @@ ALTER TABLE `tabel_admin`
 -- Indeks untuk tabel `tabel_barang`
 --
 ALTER TABLE `tabel_barang`
-  ADD PRIMARY KEY (`id_barang`),
-  ADD KEY `id_user` (`id_user`),
-  ADD KEY `id_jenis` (`id_jenis`),
-  ADD KEY `id_admin` (`id_admin`);
+  ADD PRIMARY KEY (`id_barang`);
 
 --
 -- Indeks untuk tabel `tabel_checkout`
 --
 ALTER TABLE `tabel_checkout`
   ADD PRIMARY KEY (`id_checkout`),
-  ADD KEY `id_admin` (`id_admin`),
-  ADD KEY `id_user` (`id_user`),
   ADD KEY `id_barang` (`id_barang`);
 
 --
@@ -185,7 +175,7 @@ ALTER TABLE `tabel_admin`
 -- AUTO_INCREMENT untuk tabel `tabel_barang`
 --
 ALTER TABLE `tabel_barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
 
 --
 -- AUTO_INCREMENT untuk tabel `tabel_checkout`
@@ -210,20 +200,10 @@ ALTER TABLE `tabel_user`
 --
 
 --
--- Ketidakleluasaan untuk tabel `tabel_barang`
---
-ALTER TABLE `tabel_barang`
-  ADD CONSTRAINT `tabel_barang_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `tabel_user` (`id_user`) ON DELETE CASCADE,
-  ADD CONSTRAINT `tabel_barang_ibfk_2` FOREIGN KEY (`id_jenis`) REFERENCES `tabel_jenis_barang` (`id_jenis`) ON DELETE CASCADE,
-  ADD CONSTRAINT `tabel_barang_ibfk_3` FOREIGN KEY (`id_admin`) REFERENCES `tabel_admin` (`id_admin`) ON DELETE CASCADE;
-
---
 -- Ketidakleluasaan untuk tabel `tabel_checkout`
 --
 ALTER TABLE `tabel_checkout`
-  ADD CONSTRAINT `tabel_checkout_ibfk_1` FOREIGN KEY (`id_admin`) REFERENCES `tabel_admin` (`id_admin`) ON DELETE CASCADE,
-  ADD CONSTRAINT `tabel_checkout_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `tabel_user` (`id_user`) ON DELETE CASCADE,
-  ADD CONSTRAINT `tabel_checkout_ibfk_3` FOREIGN KEY (`id_barang`) REFERENCES `tabel_barang` (`id_barang`) ON DELETE CASCADE;
+  ADD CONSTRAINT `tabel_checkout_ibfk_1` FOREIGN KEY (`id_barang`) REFERENCES `tabel_barang` (`id_barang`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
