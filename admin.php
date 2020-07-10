@@ -37,8 +37,7 @@
                     <a href="#">Show</a>
                 </div>
             </li>
-            <li><a href="transaction.php" style="color: #f5f6fa">Transaction</a></li>
-            <li><a href="user.php" style="color: #f5f6fa">User</a></li>
+            <li><a href="checkoutAdmin.php" style="color: #f5f6fa">Transaction</a></li>
             <li><a href="logout.php" style="color: #f5f6fa">Logout</a></li>
         </ul>
     </div>
