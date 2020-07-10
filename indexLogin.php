@@ -117,11 +117,11 @@
                         </li>
                     </ul>
                 </div>
-                <div class="navbar-nav">
+                <div class="navbar-nav navbar sticky-top">
                     <li class="nav-item mx-2 search-icon">
                         <form action="" method="post">
                             <input class="form-control mr-sm-2" type="text" name="keyword" placeholder="Nama Barang" autocomplete="off">
-                            <i><button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="cari">Cari</button></i>
+                            <i><button class="btn btn-outline-primary my-2 my-sm-0" type="submit" name="cari">Cari</button></i>
                         </form>
                     </li>
                     <li class="nav-item border rounded-circle mx-2 basket-icon">
