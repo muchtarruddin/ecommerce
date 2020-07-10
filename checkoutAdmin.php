@@ -63,7 +63,7 @@
                         <td style="color:red">
                             <a class="btn btn-primary" href="#" role="button"><?= $row["status"]; ?></a>
                         </td>
-                        <td><a class="btn btn-primary" href="#" role="button">CETAK</a></td>
+                        <td><a class="btn btn-primary" href="cetak_print_database/cetak.php" role="button">CETAK</a></td>
                     </tr>
                 <<?php $i++; ?> <?php endforeach; ?>
             </tbody>

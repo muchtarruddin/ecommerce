@@ -46,6 +46,7 @@
     <!--tabel-->
     <table>
         <tr>
+
             <th>No</th>
             <th>Barang</th>
             <th>Nama Barang</th>
@@ -53,7 +54,7 @@
             <th>Opsi</th>
         </tr>
         <?php $i = 1; ?>
-        <?php foreach( $tabel_barang as $row ) : ?>
+        <<?php foreach( $tabel_barang as $row ) : ?>
         <tr>
             <td><?= $i; ?></td>
             <td><img style="width:150px; height:150px" src="img/product/<?= $row["picture"]; ?>" alt=""></td>
@@ -66,7 +67,7 @@
                 <a href="download.php?filename=<?= $row['picture']; ?>">Download</a>
             </td>
         </tr>
-        <<?php $i++; ?> <?php endforeach; ?>
+        <?php $i++; ?> <?php endforeach; ?>
         </table> <!--tabel-->
 
 </body>
