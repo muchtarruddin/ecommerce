@@ -180,7 +180,7 @@
                     <div class="col-md-6 col-lg-4">
                         <div class="card border-0 transform-on-hover">
                             <a class="lightbox" href="#">
-                                <img src="img/product/img/<?= $row["picture"]; ?>" alt="Card Image" class="card-img-top">
+                                <img src="img/product/<?= $row["picture"]; ?>" alt="Card Image" class="card-img-top">
                             </a>
                             <div class="card-body">
                                 <h6><a href="#"><?= $row["nama_barang"]; ?></a></h6>

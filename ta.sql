@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 10 Jul 2020 pada 05.56
+-- Waktu pembuatan: 10 Jul 2020 pada 06.05
 -- Versi server: 10.1.36-MariaDB
 -- Versi PHP: 7.2.11
 
@@ -55,7 +55,7 @@ CREATE TABLE `tabel_barang` (
   `id_jenis` int(11) DEFAULT NULL,
   `id_admin` int(11) DEFAULT NULL,
   `nama_barang` varchar(100) DEFAULT NULL,
-  `harga` int(11) DEFAULT NULL,
+  `harga_barang` int(11) DEFAULT NULL,
   `picture` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -63,7 +63,7 @@ CREATE TABLE `tabel_barang` (
 -- Dumping data untuk tabel `tabel_barang`
 --
 
-INSERT INTO `tabel_barang` (`id_barang`, `id_user`, `id_jenis`, `id_admin`, `nama_barang`, `harga`, `picture`) VALUES
+INSERT INTO `tabel_barang` (`id_barang`, `id_user`, `id_jenis`, `id_admin`, `nama_barang`, `harga_barang`, `picture`) VALUES
 (100, 10, 50, 1, 'Jaket Erigo', 250000, 'jacket.jpg');
 
 -- --------------------------------------------------------
