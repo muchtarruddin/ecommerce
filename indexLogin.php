@@ -214,7 +214,7 @@
                             <div class="card-body">
                                 <h6><a href="#"><?= $row["nama_barang"]; ?></a></h6>
                                 <p class="text-muted card-text">Rp <?= $row["harga_barang"]; ?></p>
-                                <a href="" type="button" class="btn btn-primary"
+                                <a href="checkout.php" type="button" class="btn btn-primary"
                                     style="color: #FFFFFF; font-family:Open Sans">BUY</a>
                             </div>
                         </div>
