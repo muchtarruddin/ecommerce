@@ -224,7 +224,7 @@
                 <!--navigasi-->
                 <?php for($i = 1; $i <=$jumlahHalaman; $i++): ?>
                 <?php if( $i ==$halamanaktif ) : ?>
-                <a href="?halaman=<?= $i; ?>" style="font-weight: bold; collor: green;"><?= $i; ?></a>
+                <a href="?halaman=<?= $i; ?>" style="font-weight: bold; collor: red;"><?= $i; ?></a>
                 <?php else : ?>
                 <a href="?halaman=<?= $i; ?>"><?= $i; ?></a>        
                 <?php endif; ?>
