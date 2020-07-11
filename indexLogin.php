@@ -4,7 +4,7 @@
 
     //pagination
     //konfigurasi
-        $jumlahdataperhalaman = 3;
+        $jumlahdataperhalaman = 4;
         $jumlahData = count(query("SELECT * FROM tabel_barang"));
         $jumlahHalaman = ceil($jumlahData / $jumlahdataperhalaman);
         $halamanaktif = ( isset($_GET["halaman"]) ) ? $_GET["halaman"] : 1;
