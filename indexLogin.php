@@ -222,9 +222,19 @@
                 </div>
                 <?php endforeach; ?>
                 <!--navigasi-->
+                <?php if($halamanaktif> 1 ) : ?>
+                <a href="?halaman=<?=$halamanaktif - 1 ; ?>">&laquo;</a>
+                <?php endif; ?>
                 <?php for($i = 1; $i <=$jumlahHalaman; $i++): ?>
-                <a href="?halaman=<?= $i; ?>"><?= $i; ?></a>
+                <?php if( $i ==$halamanaktif ) : ?>
+                <a href="?halaman=<?= $i; ?>" style="font-weight: bold; color: blue;"><?= $i; ?></a>
+                <?php else : ?>
+                <a href="?halaman=<?= $i; ?>"><?= $i; ?></a>        
+                <?php endif; ?>
                 <?php endfor;?>
+                <?php if($halamanaktif< $jumlahHalaman ) : ?>
+                <a href="?halaman=<?=$halamanaktif + 1 ; ?>">&raquo;</a>
+                <?php endif; ?>
             </div>
         </section>
         <!--/Product-->
