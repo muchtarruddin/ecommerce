@@ -222,19 +222,30 @@
                 </div>
                 <?php endforeach; ?>
                 <!--navigasi-->
-                <?php if($halamanaktif> 1 ) : ?>
-                <a href="?halaman=<?=$halamanaktif - 1 ; ?>">&laquo;</a>
-                <?php endif; ?>
-                <?php for($i = 1; $i <=$jumlahHalaman; $i++): ?>
-                <?php if( $i ==$halamanaktif ) : ?>
-                <a href="?halaman=<?= $i; ?>" style="font-weight: bold; color: blue;"><?= $i; ?></a>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                        <?php if($halamanaktif> 1 ) : ?>
+                        <a class="page-link" href="?halaman=<?=$halamanaktif - 1 ; ?>"></a>
+                        <?php endif; ?>
+                        </li>
+                        <?php for($i = 1; $i <=$jumlahHalaman; $i++): ?>
+                        <?php if( $i ==$halamanaktif ) : ?>
+                <!--<a href= ><?= $i; ?></a> -->
+                        <li class="page-item"><a style="font-weight: bold; color: blue;" class="page-link" href="?halaman=<?= $i; ?>"><?=$i;?></a></li>
                 <?php else : ?>
-                <a href="?halaman=<?= $i; ?>"><?= $i; ?></a>        
+                        <li class="page-item"><a class="page-link" href="?halaman=<?= $i; ?>"><?= $i; ?></a></li>
                 <?php endif; ?>
                 <?php endfor;?>
                 <?php if($halamanaktif< $jumlahHalaman ) : ?>
-                <a href="?halaman=<?=$halamanaktif + 1 ; ?>">&raquo;</a>
+                        <li class="page-item"><a class="page-link" href="?halaman=<?=$halamanaktif + 1 ; ?>">Next</a></li>
+                <!--<a href=">&raquo;</a>-->
                 <?php endif; ?>
+                       <!-- <li class="page-item">
+                        <a class="page-link" href="#">Next</a> -->
+                        </li>
+                    </ul>
+                </nav>       
             </div>
         </section>
         <!--/Product-->
